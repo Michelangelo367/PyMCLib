@@ -1,6 +1,6 @@
 # Python Monte Carlo Library
 
-This project is supposed to be a python version of its [Matlab sibiling](https://github.com/urfdvw/MClib)
+This project is supposed to be a python version of its [Matlab counterpart](https://github.com/urfdvw/MClib)
 
 ## Goal
 
