@@ -51,6 +51,22 @@ def weightedsum(x, w):
     return accu
 
 
+def mvnfit(x, w):
+    """ fit weighted samples by a Multivariable Gaussian
+    inputs:
+        x: M*D, nparray: samples
+        w: M, nparray: weights
+    return:
+        mu: D nparray: mvn mean
+        C: D*D nparray: mvn covariance
+    """
+    w = w / np.sum(w)
+    mu = weightedsum(x, w)
+    x_mu = x - mu
+    C = x_mu.transpose() @ np.diag(w) @ x_mu
+    return mu, C
+
+
 def plotsamples(x, w, dim=[0,1]):
     """ plot weighted samples in 2D
     inputs:
