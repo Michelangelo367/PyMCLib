@@ -93,12 +93,15 @@ class pmc:
         # resampling
         if self.resample_method == "global":
             ind = np.random.choice(
-                a=np.arange(self.N * self.K), p=fn.logw2w(outlogTw), size=self.N
+                a=np.arange(self.N * self.K),
+                p=fn.logw2w(outlogTw), size=self.N
             )
             self.mu = outx[ind, :]
         elif self.resample_method == "local":
             for n in range(self.N):
-                ind = np.random.choice(a=np.arange(self.K), p=fn.logw2w(logTw_n[n, :]))
+                ind = np.random.choice(
+                        a=np.arange(self.K),
+                        p=fn.logw2w(logTw_n[n, :]))
                 self.mu[n, :] = self.x[n, ind, :]
         else:
             print("wrong resample type")
